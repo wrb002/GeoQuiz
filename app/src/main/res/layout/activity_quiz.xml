@@ -5,13 +5,17 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_button" />
 
 
     <TextView
-        android:id="@+id/question_id"
+        android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/question_id"
         android:padding="24dp" />
 
     <LinearLayout
