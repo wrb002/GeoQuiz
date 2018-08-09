@@ -37,29 +37,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation = "horizontal">
-
-        <Button
-            android:id="@+id/previous_button"
-            android:layout_width="39dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:drawableLeft="@drawable/arrow_left"
-            android:drawablePadding="4dp" />
-
-        <Button
-            android:id="@+id/next_button"
-            android:layout_width="36dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:drawablePadding="4dp"
-            android:drawableRight="@drawable/arrow_right" />
-
-
-
-    </LinearLayout>
     <Button
         android:id="@+id/cheat_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text ="@string/cheat_button"/>
+
+
+
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="39dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:drawableLeft="@drawable/arrow_left"
+        android:drawablePadding="4dp" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="36dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:drawablePadding="4dp"
+        android:drawableRight="@drawable/arrow_right" />
 </LinearLayout>

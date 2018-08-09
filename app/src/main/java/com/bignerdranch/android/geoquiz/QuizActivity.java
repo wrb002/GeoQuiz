@@ -14,6 +14,7 @@ import org.w3c.dom.Text;
 
 public class QuizActivity extends AppCompatActivity {
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
     private static final int REQUEST_CODE_CHEAT = 0;
     private Button mTrueButton;
     private Button mFalseButton;
@@ -35,18 +36,14 @@ public class QuizActivity extends AppCompatActivity {
     private boolean mIsCheater;
     private int mCurrentIndex = 0;
 
-    @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt("Index", mCurrentIndex);
-    }
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate(bundle) called");
         setContentView(R.layout.activity_quiz);
         if (savedInstanceState != null) {
-            mCurrentIndex = savedInstanceState.getInt("index", 0);
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
         }
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
@@ -124,7 +121,11 @@ public class QuizActivity extends AppCompatActivity {
         super.onPause();
         Log.d(TAG, "onPause() called");
     }
-
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+    }
     @Override
     public void onStop() {
         super.onStop();
