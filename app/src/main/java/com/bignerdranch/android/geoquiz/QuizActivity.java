@@ -29,12 +29,19 @@ public class QuizActivity extends AppCompatActivity {
 
     };
     private int mCurrentIndex = 0;
-    @Override
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState){
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("Index",mCurrentIndex);}
+        
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate(bundle) called");
         setContentView(R.layout.activity_quiz);
+        if (savedInstanceState!= null){
+            mCurrentIndex=savedInstanceState.getInt("index", 0);
+        }
 
 
         mQuestionTextView= (TextView)findViewById(R.id.question_text_view);
@@ -119,6 +126,8 @@ public class QuizActivity extends AppCompatActivity {
        Toast.makeText(this, messageResId,Toast.LENGTH_SHORT).show();
 
     }
+
+
 }
 
 
