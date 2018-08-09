@@ -16,11 +16,17 @@ public class QuizActivity extends AppCompatActivity {
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
     private static final int REQUEST_CODE_CHEAT = 0;
+
     private Button mTrueButton;
+
     private Button mFalseButton;
+
     private Button mNextButton;
+
     private Button mPreviousButton;
+
     private Button mCheatButton;
+
     private TextView mQuestionTextView;
 
     private Question[] mQuestionBank = new Question[]{
@@ -69,6 +75,7 @@ public class QuizActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+                mIsCheater = false;
                 updateQuestion();
             }
         });
@@ -143,12 +150,15 @@ public class QuizActivity extends AppCompatActivity {
         int messageResId = 0;
         if (mIsCheater) {
             messageResId = R.string.judgment_toast;
+            Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
 
         } else {
             if (userPressedTrue == answerIsTrue) {
                 messageResId = R.string.correct_toast;
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+
                 updateQuestion();
+
             } else {
                 messageResId = R.string.incorrect_toast;
             }
